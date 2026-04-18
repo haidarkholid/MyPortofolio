@@ -1,0 +1,99 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #0b0c10;
+    color: #c5c6c7;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Elemen Dekorasi Latar Belakang */
+.background-elements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px); /* Membuat efek glowing yang menyebar */
+    opacity: 0.4;
+}
+
+.circle-1 {
+    width: 400px;
+    height: 400px;
+    background-color: #66fcf1;
+    top: -100px;
+    left: -100px;
+}
+
+.circle-2 {
+    width: 350px;
+    height: 350px;
+    background-color: #45a29e;
+    bottom: -50px;
+    right: -50px;
+}
+
+/* Tipografi dan Layout Teks */
+.hero {
+    text-align: center;
+    z-index: 1;
+    padding: 0 20px;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    color: #45a29e;
+}
+
+.title {
+    font-size: 4rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+.highlight {
+    color: #66fcf1;
+}
+
+.description {
+    font-size: 1.1rem;
+    font-weight: 300;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* State awal untuk JS: disembunyikan sebelum dianimasikan */
+.line {
+    opacity: 0;
+}
+
+/* Responsivitas untuk layar kecil */
+@media (max-width: 768px) {
+    .title {
+        font-size: 2.5rem;
+    }
+    .subtitle {
+        font-size: 1rem;
+    }
+}
