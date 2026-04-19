@@ -1,3 +1,4 @@
+/* --- Reset & Dasar --- */
 * {
     margin: 0;
     padding: 0;
@@ -8,16 +9,13 @@ body {
     font-family: 'Poppins', sans-serif;
     background-color: #0b0c10;
     color: #c5c6c7;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    line-height: 1.6;
+    overflow-x: hidden; /* Mencegah scroll horizontal */
 }
 
-/* Elemen Dekorasi Latar Belakang */
+/* --- Elemen Dekorasi Latar Belakang (Glowing Orbs) --- */
 .background-elements {
-    position: absolute;
+    position: fixed; /* Diubah ke fixed agar tetap di belakang saat scroll */
     top: 0;
     left: 0;
     width: 100%;
@@ -29,7 +27,7 @@ body {
 .circle {
     position: absolute;
     border-radius: 50%;
-    filter: blur(100px); /* Membuat efek glowing yang menyebar */
+    filter: blur(100px);
     opacity: 0.4;
 }
 
@@ -49,10 +47,13 @@ body {
     right: -50px;
 }
 
-/* Tipografi dan Layout Teks */
+/* --- Bagian Hero (Layar Sambutan) --- */
 .hero {
+    height: 100vh; /* Mengunci tinggi tepat satu layar */
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    z-index: 1;
     padding: 0 20px;
 }
 
@@ -80,45 +81,33 @@ body {
     font-weight: 300;
     max-width: 600px;
     margin: 0 auto;
-    line-height: 1.6;
 }
 
-/* State awal untuk JS: disembunyikan sebelum dianimasikan */
+/* State awal untuk animasi Anime.js */
 .line {
     opacity: 0;
 }
 
-/* Responsivitas untuk layar kecil */
-@media (max-width: 768px) {
-    .title {
-        font-size: 2.5rem;
-    }
-    .subtitle {
-        font-size: 1rem;
-    }
-}
-
-/* Container & General Layout */
+/* --- Container Umum --- */
 .container {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 80px 20px;
+    padding: 100px 20px;
 }
 
 .section-title {
     font-size: 2.5rem;
     color: #66fcf1;
     margin-bottom: 30px;
-    position: relative;
 }
 
 .center { text-align: center; }
 
-/* About Section */
+/* --- Bagian About (Tentang Saya) --- */
 .about-flex {
     display: flex;
     align-items: center;
-    gap: 50px;
+    gap: 60px;
 }
 
 .about-img img {
@@ -131,10 +120,10 @@ body {
 
 .about-text p {
     margin-bottom: 20px;
-    line-height: 1.8;
+    font-size: 1.1rem;
 }
 
-/* Grid & Cards */
+/* --- Bagian Portfolio (Grid Proyek & Organisasi) --- */
 .grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -144,40 +133,72 @@ body {
 
 .card {
     background: #1f2833;
-    padding: 30px;
+    padding: 35px;
     border-radius: 15px;
-    transition: transform 0.3s ease, border 0.3s ease;
-    border: 1px solid transparent;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(102, 252, 241, 0.1);
 }
 
 .card:hover {
     transform: translateY(-10px);
     border-color: #66fcf1;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
 .card-tag {
     color: #66fcf1;
     font-size: 0.8rem;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 10px;
+    letter-spacing: 1.5px;
+    margin-bottom: 15px;
+    display: inline-block;
 }
 
 .card h3 {
     color: #ffffff;
+    font-size: 1.5rem;
     margin-bottom: 15px;
 }
 
-/* Scroll Animation Class */
-.reveal {
-    opacity: 0;
-    transform: translateY(30px);
+.card p {
+    font-size: 0.95rem;
+    color: #c5c6c7;
 }
 
-/* Responsive */
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 50px 20px;
+    border-top: 1px solid #1f2833;
+    margin-top: 50px;
+    color: #45a29e;
+    font-size: 0.9rem;
+}
+
+/* --- Animasi Reveal (Scroll) --- */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 1s ease;
+}
+
+/* --- Responsivitas (Mobile Friendly) --- */
 @media (max-width: 768px) {
+    .title {
+        font-size: 2.5rem;
+    }
+    
     .about-flex {
         flex-direction: column;
         text-align: center;
+        gap: 30px;
+    }
+
+    .container {
+        padding: 60px 20px;
+    }
+
+    .section-title {
+        font-size: 2rem;
     }
 }
