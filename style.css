@@ -10,12 +10,12 @@ body {
     background-color: #0b0c10;
     color: #c5c6c7;
     line-height: 1.6;
-    overflow-x: hidden; /* Mencegah scroll horizontal */
+    overflow-x: hidden; /* Hanya matikan scroll horizontal */
 }
 
-/* --- Elemen Dekorasi Latar Belakang (Glowing Orbs) --- */
+/* --- Elemen Dekorasi Latar Belakang --- */
 .background-elements {
-    position: fixed; /* Diubah ke fixed agar tetap di belakang saat scroll */
+    position: fixed; /* Tetap di background meski di-scroll */
     top: 0;
     left: 0;
     width: 100%;
@@ -49,8 +49,9 @@ body {
 
 /* --- Bagian Hero (Layar Sambutan) --- */
 .hero {
-    height: 100vh; /* Mengunci tinggi tepat satu layar */
+    height: 100vh; /* Tinggi satu layar penuh */
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -179,7 +180,6 @@ footer {
 .reveal {
     opacity: 0;
     transform: translateY(40px);
-    transition: all 1s ease;
 }
 
 /* --- Responsivitas (Mobile Friendly) --- */
