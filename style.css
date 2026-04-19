@@ -1,4 +1,3 @@
-/* --- Reset & Dasar --- */
 * {
     margin: 0;
     padding: 0;
@@ -9,13 +8,16 @@ body {
     font-family: 'Poppins', sans-serif;
     background-color: #0b0c10;
     color: #c5c6c7;
-    line-height: 1.6;
-    overflow-x: hidden; /* Hanya matikan scroll horizontal */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
-/* --- Elemen Dekorasi Latar Belakang --- */
+/* Elemen Dekorasi Latar Belakang */
 .background-elements {
-    position: fixed; /* Tetap di background meski di-scroll */
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
@@ -27,7 +29,7 @@ body {
 .circle {
     position: absolute;
     border-radius: 50%;
-    filter: blur(100px);
+    filter: blur(100px); /* Membuat efek glowing yang menyebar */
     opacity: 0.4;
 }
 
@@ -47,14 +49,10 @@ body {
     right: -50px;
 }
 
-/* --- Bagian Hero (Layar Sambutan) --- */
+/* Tipografi dan Layout Teks */
 .hero {
-    height: 100vh; /* Tinggi satu layar penuh */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     text-align: center;
+    z-index: 1;
     padding: 0 20px;
 }
 
@@ -82,123 +80,20 @@ body {
     font-weight: 300;
     max-width: 600px;
     margin: 0 auto;
+    line-height: 1.6;
 }
 
-/* State awal untuk animasi Anime.js */
+/* State awal untuk JS: disembunyikan sebelum dianimasikan */
 .line {
     opacity: 0;
 }
 
-/* --- Container Umum --- */
-.container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 100px 20px;
-}
-
-.section-title {
-    font-size: 2.5rem;
-    color: #66fcf1;
-    margin-bottom: 30px;
-}
-
-.center { text-align: center; }
-
-/* --- Bagian About (Tentang Saya) --- */
-.about-flex {
-    display: flex;
-    align-items: center;
-    gap: 60px;
-}
-
-.about-img img {
-    width: 100%;
-    max-width: 350px;
-    border-radius: 20px;
-    border: 3px solid #45a29e;
-    box-shadow: 0 10px 30px rgba(102, 252, 241, 0.2);
-}
-
-.about-text p {
-    margin-bottom: 20px;
-    font-size: 1.1rem;
-}
-
-/* --- Bagian Portfolio (Grid Proyek & Organisasi) --- */
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 25px;
-    margin-top: 40px;
-}
-
-.card {
-    background: #1f2833;
-    padding: 35px;
-    border-radius: 15px;
-    transition: all 0.3s ease;
-    border: 1px solid rgba(102, 252, 241, 0.1);
-}
-
-.card:hover {
-    transform: translateY(-10px);
-    border-color: #66fcf1;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-}
-
-.card-tag {
-    color: #66fcf1;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    margin-bottom: 15px;
-    display: inline-block;
-}
-
-.card h3 {
-    color: #ffffff;
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-}
-
-.card p {
-    font-size: 0.95rem;
-    color: #c5c6c7;
-}
-
-/* --- Footer --- */
-footer {
-    text-align: center;
-    padding: 50px 20px;
-    border-top: 1px solid #1f2833;
-    margin-top: 50px;
-    color: #45a29e;
-    font-size: 0.9rem;
-}
-
-/* --- Animasi Reveal (Scroll) --- */
-.reveal {
-    opacity: 0;
-    transform: translateY(40px);
-}
-
-/* --- Responsivitas (Mobile Friendly) --- */
+/* Responsivitas untuk layar kecil */
 @media (max-width: 768px) {
     .title {
         font-size: 2.5rem;
     }
-    
-    .about-flex {
-        flex-direction: column;
-        text-align: center;
-        gap: 30px;
-    }
-
-    .container {
-        padding: 60px 20px;
-    }
-
-    .section-title {
-        font-size: 2rem;
+    .subtitle {
+        font-size: 1rem;
     }
 }
